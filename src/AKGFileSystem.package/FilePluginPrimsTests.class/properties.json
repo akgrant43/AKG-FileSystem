@@ -1,0 +1,11 @@
+{
+	"commentStamp" : "AlistairGrant 3/2/2018 10:54",
+	"super" : "TestCase",
+	"category" : "AKGFileSystem-FilePlugin",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "FilePluginPrimsTests",
+	"type" : "normal"
+}

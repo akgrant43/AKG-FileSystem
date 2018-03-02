@@ -1,0 +1,19 @@
+{
+	"commentStamp" : "AlistairGrant 3/2/2018 10:52",
+	"super" : "FFIExternalStructure",
+	"category" : "AKGFileSystem-FilePlugin",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [
+		"OFFSET_FILE",
+		"OFFSET_FILESIZE",
+		"OFFSET_ISSTDIOSTREAM",
+		"OFFSET_LASTCHAR",
+		"OFFSET_LASTOP",
+		"OFFSET_SESSIONID",
+		"OFFSET_WRITABLE"
+	],
+	"instvars" : [ ],
+	"name" : "SQFile",
+	"type" : "normal"
+}
