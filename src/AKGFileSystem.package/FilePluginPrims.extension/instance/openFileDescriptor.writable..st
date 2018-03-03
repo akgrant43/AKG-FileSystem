@@ -5,7 +5,9 @@ openFileDescriptor: fileDescriptor writable: writableFlag
 	<primitive: 'primitiveFileOpenUseFileDescriptor' module: 'FilePlugin' error: error>
 	error = #'bad argument' ifTrue: [ 
 		fileDescriptor isInteger ifFalse: 
-			[ ^self error: 'fileDescriptor must be an integer' ].
+			[ ^self error: 'openFileDescriptor:writable: fileDescriptor must be an integer' ].
 		(writableFlag isKindOf: Boolean) ifFalse: 
-			[ ^self error: 'writableFlag must be a boolean' ] ].
+			[ ^self error: 'openFileDescriptor:writable: writableFlag must be a boolean' ] ].
+	OSPlatform current isWindows ifTrue: 
+			[ ^self error: 'openFileDescriptor:writable: not supported on Windows' ].
 	^ self primitiveFailed 
