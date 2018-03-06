@@ -4,7 +4,7 @@ testOpenFileFileWritable
 	To get a FILE* pointer this method directly accesses the internals of a normal file stream, which is bad practice!  It also relies on SQFile being up to date, which it may not be!
 	If you don't know what you're doing, run away now!"
 
-	| tmpFileName testText origFile sqFile stream size contents |
+	| tmpFileName testText origFile sqFile stream size contents handle |
 
 	tmpFileName := FileReference newTempFilePrefix: 'testFilePlugin' suffix: 'testOpenFileFileWritable'.
 	testText := 'Test text'.
@@ -12,6 +12,7 @@ testOpenFileFileWritable
 		wstream nextPutAll: testText ].
 	origFile := tmpFileName readStream.
 	sqFile := SQFile fromHandle: (origFile instVarNamed: #fileID).
+	handle := FilePluginPrims new connectToFile: (sqFile file getHandle asByteArrayPointer) writable: false.
 	stream := BinaryFileStream
 		handle: sqFile getHandle
 		file: (File named: 'akgFromFile')

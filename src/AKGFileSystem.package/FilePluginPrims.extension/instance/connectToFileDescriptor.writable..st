@@ -9,6 +9,4 @@ connectToFileDescriptor: fileDescriptor writable: writableFlag
 			[ ^self error: 'openFileDescriptor:writable: fileDescriptor must be an integer' ].
 		(writableFlag isKindOf: Boolean) ifFalse: 
 			[ ^self error: 'openFileDescriptor:writable: writableFlag must be a boolean' ] ].
-	OSPlatform current isWindows ifTrue: 
-			[ ^self error: 'openFileDescriptor:writable: not supported on Windows' ].
 	^ self primitiveFailed 
