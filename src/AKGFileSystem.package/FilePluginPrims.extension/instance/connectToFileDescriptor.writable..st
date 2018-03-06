@@ -1,8 +1,9 @@
 *AKGFileSystem
-openFileDescriptor: fileDescriptor writable: writableFlag
-	"Open the file with fileDescriptor number, and return the file ID obtained"
+connectToFileDescriptor: fileDescriptor writable: writableFlag
+	"Connect to the file with fileDescriptor number, and return the file ID obtained.
+	writeableFlag indicates whether to allow write operations and must be compatible with the way the file was opened."
 
-	<primitive: 'primitiveFileOpenUseFileDescriptor' module: 'FilePlugin' error: error>
+	<primitive: 'primitiveConnectToFileDescriptor' module: 'FilePlugin' error: error>
 	error = #'bad argument' ifTrue: [ 
 		fileDescriptor isInteger ifFalse: 
 			[ ^self error: 'openFileDescriptor:writable: fileDescriptor must be an integer' ].

@@ -1,5 +1,5 @@
 *AKGFileSystem
-openFileFile: filePointer writable: writableFlag
+connectToFile: filePointer writable: writableFlag
 	"Open the file with the supplied FILE* pointer, and return the file ID obtained"
 
 	<primitive: 'primitiveFileOpenUseFile' module: 'FilePlugin' error: error>
