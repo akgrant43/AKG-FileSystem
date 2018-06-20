@@ -1,11 +1,11 @@
 tests
 manualopenFileDescriptorwritable
 	"Write Hello World to stderr and check manually.
-	Only works on POSIX platforms."
+	Only works if stderr is connected to something sensible."
 
 	| handle stream |
 
-	handle := FilePluginPrims new connectToFileDescriptor: 2 writable: true.
+	handle := File connectToFileDescriptor: 2 writable: true.
 	stream := BinaryFileStream handle: handle
 					file: (File named: '/akg/stderr')
 					forWrite: true.

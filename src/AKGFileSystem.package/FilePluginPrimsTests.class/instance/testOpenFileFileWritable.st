@@ -11,8 +11,8 @@ testOpenFileFileWritable
 	tmpFileName writeStreamDo: [ :wstream |
 		wstream nextPutAll: testText ].
 	origFile := tmpFileName readStream.
-	origSqFile := SQFile fromHandle: (origFile instVarNamed: #fileID).
-	handle := FilePluginPrims new connectToFile: (origSqFile file getHandle asByteArrayPointer) writable: false.
+	origSqFile := SQFile fromHandle: (origFile wrappedStream wrappedStream instVarNamed: #handle).
+	handle := File connectToFile: (origSqFile file getHandle asByteArrayPointer) writable: false.
 	newSqFile := SQFile fromHandle: handle.
 	self assert: origSqFile file getHandle equals: newSqFile file getHandle.
 	stream := BinaryFileStream
